@@ -1,4 +1,5 @@
-````markdown
+markdown
+
 # My Node.js TypeScript Project
 
 A simple Node.js project using TypeScript and Express, featuring a basic `'/'` endpoint that returns `"Hello World"`. This setup follows best practices for scalability and maintainability.
@@ -35,7 +36,6 @@ source ~/.bashrc
 # or
 source ~/.zshrc
 ```
-````
 
 For Windows, consider using [nvm-windows](https://github.com/coreybutler/nvm-windows).
 
