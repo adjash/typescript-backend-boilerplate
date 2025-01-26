@@ -4,6 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
+    "start:db": "brew services start postgresql",
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts",
     "lint": "eslint . --ext .ts",
@@ -14,22 +15,31 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.10.10",
+    "@types/pg": "^8.11.11",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "@typescript-eslint/parser": "^8.21.0",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
+    "prisma": "^6.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "zod": "^3.24.1"
   }
 }
