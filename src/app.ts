@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import helloRoute from './routes/helloRoute';
 import errorHandler from './middlewares/errorHandler';
 import authRoute from './routes/authRoute';
+import profileRoute from './routes/profileRoute'; // Import the profile route
 
 const app: Application = express();
 
@@ -18,6 +19,7 @@ app.use(morgan('dev'));
 // Routes
 app.use('/', helloRoute);
 app.use('/auth', authRoute);
+app.use('/', profileRoute); // Mount the profile route
 
 // Error Handling Middleware (should be last)
 app.use(errorHandler);

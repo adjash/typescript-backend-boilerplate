@@ -1,11 +1,12 @@
 // src/types/auth.ts
 
 import { Prisma } from '@prisma/client';
+import { Request } from 'express';
 
 // DTO for creating a new user (input)
 export type CreateUserDTO = Prisma.UserCreateInput;
 
-// DTO for user registration response (excluding password)
+// DTO for user registration and login response (excluding password)
 export type UserResponse = Prisma.UserGetPayload<{
   select: {
     id: true;
@@ -16,3 +17,8 @@ export type UserResponse = Prisma.UserGetPayload<{
     updatedAt: true;
   };
 }>;
+
+// Extending Express Request to include user data
+export interface AuthenticatedRequest extends Request {
+  user?: { userId: string };
+}
