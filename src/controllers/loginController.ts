@@ -52,11 +52,20 @@ export const loginController: RequestHandler = async (req, res, next) => {
       updatedAt: user.updatedAt,
     };
 
-    res.status(200).json({
-      user: userResponse,
-      token,
-      message: 'Login successful.',
-    });
+    // res.status(200).json({
+    //   user: userResponse,
+    //   token,
+    //   message: 'Login successful.',
+    // });
+    res
+      .cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Only send over HTTPS in production
+        sameSite: 'strict', // or 'lax' based on your needs
+        maxAge: 60 * 60 * 1000, // 1 hour (in milliseconds)
+      })
+      .status(200)
+      .json({ user, message: 'Login successful.' });
     return; // Optional: Explicitly end the function
   } catch (error: any) {
     console.error('Login Error:', error);
